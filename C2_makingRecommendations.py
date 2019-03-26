@@ -71,7 +71,15 @@ def initializeUserDict(tag, count=5):
             user_dict[user]  = {}
     return user_dict
 
-
+def fillItems(user_dict):
+    all_items = {}
+    for user in user_dict:
+        for i in range(3):
+            try:
+                posts = get_userposts(user)
+                break
+            except:
+                print('Failed')
 
 
 
