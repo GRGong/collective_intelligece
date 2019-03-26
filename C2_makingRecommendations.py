@@ -52,6 +52,7 @@ def getRecommendations(prefs, person, similarity = sim_person):
         ranking.sort()
         ranking.reverse()
         return ranking
+
 def transformPrefs(prefs):
     result = {}
     for person in prefs:
@@ -60,6 +61,15 @@ def transformPrefs(prefs):
             result[item][person] = prefs[person][item]
     return result
 
+from pydelicious import get_popular, get_userposts, get_urlposts
+
+def initializeUserDict(tag, count=5):
+    user_dict = {}
+    for p1 in get_popular(tag = tag)[0:count]:
+        for p2 in get_urlposts(p1['href']):
+            user = p2['user']
+            user_dict[user]  = {}
+    return user_dict
 
 
 
