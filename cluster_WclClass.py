@@ -52,7 +52,7 @@ def getRecommendations(prefs, person, similarity = sim_person):
         ranking.sort()
         ranking.reverse()
         return ranking
-    
+
 
 
 
